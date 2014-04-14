@@ -2,6 +2,7 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
+    @manufacturers = Manufacturer.all.map { |m| [m.name, m.id] }
   end
 
   def create
@@ -16,7 +17,7 @@ class CarsController < ApplicationController
 
   protected
   def car_params
-    params.require(:car).permit(:color, :year, :mileage, :description)
+    params.require(:car).permit(:color, :year, :mileage, :description, :manufacturer_id)
   end
 
 end
