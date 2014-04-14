@@ -11,6 +11,7 @@ class CarsController < ApplicationController
     if @car.save
       redirect_to new_car_path, notice: 'Car successfully added'
     else
+      @manufacturers = Manufacturer.all.map { |m| [m.name, m.id] }
       render :new
     end
   end
