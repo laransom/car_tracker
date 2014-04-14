@@ -7,4 +7,9 @@ FactoryGirl.define do
     description 'A classic with almost no logged miles!'
   end
 
+  factory :manufacturer do
+    name 'Ford'
+    country 'United States of America'
+  end
+
 end

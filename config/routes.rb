@@ -1,6 +1,8 @@
 CarListing::Application.routes.draw do
 
   resources :cars, only: [:new, :create]
+
+  resources :manufacturers, only: [:new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
