@@ -2,6 +2,7 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
+    @manufacturers = Manufacturer.all.map { |m| [m.name, m.id] }
   end
 
   def create
