@@ -10,7 +10,7 @@ class CarsController < ApplicationController
     if @car.save
       redirect_to new_car_path, notice: 'Car successfully added'
     else
-
+      render :new
     end
   end
 
