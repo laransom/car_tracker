@@ -17,10 +17,27 @@ feature 'add a new manufacturer', %q{
     fill_in 'Name', with: manufacturer.name
     select manufacturer.country, from: 'Country'
 
-    click_on 'Add Manufacturer'
+    click_on 'Record Manufacturer'
 
     expect(page).to have_content 'Manufacturer successfully added'
     expect(Manufacturer.count).to eq(pre_count + 1)
+  end
+
+  scenario 'attempts to register manufacturer with blank attributes' do
+    pre_count = Manufacturer.count
+
+    click_on 'Record Manufacturer'
+
+    within(:css, '.manufacturer_name') do
+      expect(page).to have_content "can't be blank"
+    end
+
+    within(:css, '.manufacturer_country') do
+      expect(page).to have_content "can't be blank"
+    end
+
+    expect(Car.count).to eq(pre_count)
+
   end
 
 end

@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Manufacturer do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it { should have_valid(:name).when('Ford', 'Alfa Romeo') }
+  it { should_not have_valid(:name).when(nil, '',) }
+
+  it { should have_valid(:country).when('Italy', 'Japan') }
+  it { should_not have_valid(:country).when(nil, '') }
+
 end
