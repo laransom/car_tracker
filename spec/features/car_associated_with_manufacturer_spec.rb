@@ -22,8 +22,6 @@ feature 'optionally associate car with existing manufacturer', %q{
 
     expect(page).to have_content 'Car successfully added'
     expect(Car.count).to eq(pre_count + 1)
-    binding.pry
-
   end
 
 end
